@@ -8,8 +8,14 @@ import { Link } from "react-router-dom";
  *   • /DragonBot-logo.png at h-9, width auto
  *   • the same bob: 0 → -4px → 0, 1.2s ease-in-out, infinite (`.logo-bob`,
  *     the CSS twin of the LP's framer-motion animation — no dependency needed)
- *   • "Dragon" + "Reply" (no space) in Clash Display, extrabold, 22px,
- *     tracking -0.02em, with the brand-green gradient on "Reply"
+ *   • "Dragon" + "Restock" (no space) in Clash Display, extrabold, 22px,
+ *     tracking -0.02em, with the brand-green gradient on "Restock"
+ *
+ * 🚨 The wordmark is SPLIT ACROSS TWO ELEMENTS so the gradient can apply to
+ * the second half. That means `grep -r "DragonReply"` does NOT match it — the
+ * inherited name survived the rebrand sweep here and shipped visibly on every
+ * header until a screenshot caught it. Rebranding a fork: render the app and
+ * look, don't only grep.
  *
  * 🚨 The mark is **2.07:1** — never give it both a width and a height.
  *
@@ -37,7 +43,7 @@ export function BrandLockup({
       <span className="whitespace-nowrap font-clash text-[22px] font-extrabold tracking-[-0.02em] text-[var(--foreground)]">
         Dragon
         <span className="bg-gradient-to-r from-[#2F7D4F] to-[#98CC65] bg-clip-text text-transparent">
-          Reply
+          Restock
         </span>
       </span>
       {suffix}
