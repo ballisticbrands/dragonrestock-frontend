@@ -1,6 +1,6 @@
-/* Clash Display — the landing page's display face (dragonreply-lp loads the
+/* Clash Display — the landing page's display face (dragonrestock-lp loads the
    same family from Fontshare). Pulled in so the header wordmark renders
-   identically here and on dragonreply.ai. Only the weight the wordmark uses
+   identically here and on dragonrestock.com. Only the weight the wordmark uses
    is requested; the LP asks for the full 200-700 range because it sets Clash
    on every heading, which this app does not. Must stay above @tailwind —
    CSS requires @import before any other rule. */
@@ -10,7 +10,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Matches the .font-clash helper in dragonreply-lp's globals.css. */
+/* Matches the .font-clash helper in dragonrestock-lp's globals.css. */
 .font-clash {
   font-family: 'Clash Display', sans-serif;
 }
@@ -29,9 +29,9 @@
   --code-bg: #0b0f17;
   --code-fg: #e6edf3;
 
-  /* Dragon Refunds brand greens. --accent above is still DragonBot orange,
-     inherited from the fork; these are the refunds palette, used by the
-     sign-up estimate so this app matches dragonrefunds.com. */
+  /* The shared Dragon brand greens — identical to the values in
+     dragonrestock-lp's theme.js, so the app and the landing page match.
+     --accent above is still DragonBot orange, inherited from the fork. */
   --brand-green: #2f7d4f;
   --brand-green-light: #98cc65;
 
@@ -44,7 +44,8 @@
   --eta-border: rgba(180, 83, 9, 0.3);
 }
 
-/* Report-turnaround badge — see REPORT_ETA_HOURS in lib/refundsEstimate.ts. */
+/* Turnaround badge. Inherited styling; lib/refundsEstimate.ts was the
+   parent product's and has been deleted. */
 .eta-badge {
   color: var(--eta-fg);
   background-color: var(--eta-bg);

@@ -4,7 +4,7 @@ import { Callout } from "@/docs/components/Callout";
 import { TableOfContents } from "@/docs/components/TableOfContents";
 
 // Getting started — walks a new user from account creation through
-// connecting Amazon and wiring DragonBot into their AI client. Steps mirror
+// connecting Amazon and wiring DragonRestock into their AI client. Steps mirror
 // the real app UI (sign-up form, Dashboard → Data tab, Dashboard → Keys
 // tab). Swap the <Screenshot> placeholders for real images by dropping
 // files into public/docs/screenshots/ and passing a `src`.
@@ -13,21 +13,21 @@ export function GettingStarted() {
     <>
       <h1>Getting started</h1>
       <p className="lead">
-        Set up DragonBot in three steps: create your account, connect your
-        Amazon Seller and Ads accounts, and link DragonBot to the AI you chat
+        Set up DragonRestock in three steps: create your account, connect your
+        Amazon Seller and Ads accounts, and link DragonRestock to the AI you chat
         with. The whole thing takes a few minutes.
       </p>
 
       <TableOfContents
         items={[
-          { id: "create-account", label: "Create your DragonBot account" },
+          { id: "create-account", label: "Create your DragonRestock account" },
           { id: "connect-amazon", label: "Connect your Amazon accounts" },
-          { id: "connect-ai", label: "Connect DragonBot to your AI" },
+          { id: "connect-ai", label: "Connect DragonRestock to your AI" },
         ]}
       />
 
       {/* ---------------------------------------------------------------- */}
-      <h2 id="create-account">1. Create your DragonBot account</h2>
+      <h2 id="create-account">1. Create your DragonRestock account</h2>
       <p>
         Head to the <Link to="/sign-up">sign-up page</Link> and create your
         account. You'll start a free 7-day trial — no credit card required.
@@ -40,14 +40,14 @@ export function GettingStarted() {
         </li>
       </ol>
       <Screenshot
-        alt="The DragonBot sign-up form — name, work email, and password fields with a Create account button."
-        caption="The sign-up form at app.getdragonbot.com/sign-up"
+        alt="The DragonRestock sign-up form — name, work email, and password fields with a Create account button."
+        caption="The sign-up form at app.dragonrestock.com/sign-up"
       />
 
       {/* ---------------------------------------------------------------- */}
       <h2 id="connect-amazon">2. Connect your Amazon accounts</h2>
       <p>
-        DragonBot reads your Amazon data through official Amazon APIs. From your
+        DragonRestock reads your Amazon data through official Amazon APIs. From your
         dashboard, open the <strong>Data</strong> tab to connect your accounts.
       </p>
 
@@ -58,7 +58,7 @@ export function GettingStarted() {
           <strong>Connect Amazon Seller Central account</strong>.
         </li>
         <li>
-          A secure Amazon window opens. Sign in and authorize DragonBot to read
+          A secure Amazon window opens. Sign in and authorize DragonRestock to read
           your Seller Central data (SP-API).
         </li>
         <li>
@@ -73,7 +73,7 @@ export function GettingStarted() {
 
       <Callout title="Your data is syncing">
         <p>
-          After you connect, DragonBot begins pulling your historical data in
+          After you connect, DragonRestock begins pulling your historical data in
           the background. The first reports usually land within ~10 minutes, and
           each connection shows a live <strong>Sync progress</strong> bar. You
           don't need to wait for it to finish before moving on.
@@ -81,9 +81,9 @@ export function GettingStarted() {
       </Callout>
 
       {/* ---------------------------------------------------------------- */}
-      <h2 id="connect-ai">3. Connect DragonBot to your AI</h2>
+      <h2 id="connect-ai">3. Connect DragonRestock to your AI</h2>
       <p>
-        DragonBot works as an <strong>MCP server</strong> — it plugs into AI
+        DragonRestock works as an <strong>MCP server</strong> — it plugs into AI
         clients like Claude so your assistant can pull live data from your
         Amazon accounts. To connect, you'll create an API key and add it to your
         AI client.
@@ -112,7 +112,7 @@ export function GettingStarted() {
           access.
         </li>
         <li>
-          Click <strong>Create key</strong>. DragonBot shows your{" "}
+          Click <strong>Create key</strong>. DragonRestock shows your{" "}
           <strong>API key</strong> and an <strong>MCP connector URL</strong>.
         </li>
       </ol>
@@ -133,7 +133,7 @@ export function GettingStarted() {
       <h3>Add it to your AI client</h3>
       <p>
         In your MCP client (such as Claude), add a new custom connector and paste
-        in the values DragonBot gave you:
+        in the values DragonRestock gave you:
       </p>
       <ul>
         <li>

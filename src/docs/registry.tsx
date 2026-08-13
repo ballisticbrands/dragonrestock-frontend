@@ -20,13 +20,13 @@ export const docs: Doc[] = [
   {
     slug: "getting-started",
     title: "Getting started",
-    description: "Set up DragonBot and connect your first AI agent.",
+    description: "Set up DragonRestock and connect your first AI agent.",
     Content: GettingStarted,
   },
   {
     slug: "getting-started-with-claude",
     title: "Getting started with Claude",
-    description: "Create a free Claude account and connect DragonBot to it.",
+    description: "Create a free Claude account and connect DragonRestock to it.",
     Content: GettingStartedWithClaude,
   },
 ];

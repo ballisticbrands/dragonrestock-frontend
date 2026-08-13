@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 
 /**
- * The Dragon Reply logo lockup — the single definition used by every layout
+ * The DragonRestock logo lockup — the single definition used by every layout
  * (auth, app, docs), so /sign-up, /dashboard and /docs can no longer drift.
  *
- * Mirrors dragonreply.ai's navbar (src/pages/Messaging.jsx) exactly:
+ * Mirrors dragonrestock.com's navbar (src/components/landing/Nav.jsx) exactly:
  *   • /DragonBot-logo.png at h-9, width auto
  *   • the same bob: 0 → -4px → 0, 1.2s ease-in-out, infinite (`.logo-bob`,
  *     the CSS twin of the LP's framer-motion animation — no dependency needed)
@@ -31,7 +31,7 @@ export function BrandLockup({
     <Link to={to} className="flex items-center gap-2.5">
       <img
         src="/DragonBot-logo.png"
-        alt="Dragon Reply"
+        alt="DragonRestock"
         className="logo-bob h-9 w-auto"
       />
       <span className="whitespace-nowrap font-clash text-[22px] font-extrabold tracking-[-0.02em] text-[var(--foreground)]">

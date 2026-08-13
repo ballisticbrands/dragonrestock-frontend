@@ -105,12 +105,11 @@ injectGa4(brand.ga4MeasurementId);
 injectClarity(brand.clarityId);
 injectMetaPixel(META_PIXEL_ID);
 
-// Brand-aware tab title + meta description. The tagline is Dragon
-// Reply's own — the previous "Amazon Seller MCP for AI agents" was
-// inherited boilerplate that described a different product, and it
-// showed in the tab on any route that doesn't set its own title.
+// Brand-aware tab title + meta description. The tagline must be this
+// product's own: inherited boilerplate describing a different product
+// shows in the tab on any route that doesn't set its own title.
 // Kept in sync with the pre-hydration <title> in index.html.
-document.title = `${brand.displayName} — Your Customers, Answered Automatically`;
+document.title = `${brand.displayName} — Never run out of stock again`;
 const metaDesc = document.querySelector('meta[name="description"]');
 if (metaDesc) metaDesc.setAttribute("content", brand.metaDescription);
 

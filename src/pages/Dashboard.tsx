@@ -16,7 +16,7 @@ export function Dashboard() {
   const [searchParams] = useSearchParams();
   const session = useSession();
   const brand = useBrand();
-  // Dragon Refunds is SP-API-first: without at least one connected
+  // DragonRestock is SP-API-first: without at least one connected
   // Seller Central account the product has nothing to work with, so
   // we replace the whole tabbed dashboard with a full-page onboarding
   // prompt. `null` = still loading connections; distinguishes the

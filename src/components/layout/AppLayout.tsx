@@ -28,8 +28,8 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
       <header className="border-b border-[var(--border)] bg-white">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
           <div className="flex items-center gap-8">
-            {/* Same logo treatment as the dragonreply.ai navbar: bobbing
-                dragon + "DragonReply" with the brand-green gradient. */}
+            {/* Same logo treatment as the dragonrestock.com navbar: bobbing
+                dragon + "DragonRestock" with the brand-green gradient. */}
             <BrandLockup to="/dashboard" />
             <nav className="flex items-center gap-5 text-sm">
               <Link to="/dashboard" className="text-[var(--foreground)]">

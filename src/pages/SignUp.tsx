@@ -11,23 +11,20 @@ import {
   useSignUpForm,
 } from "@ballisticbrands/frontend-shared";
 import { config } from "@/lib/config";
-import { ArrowRight, CheckCircle, ExternalLink, Shield } from "@/components/ui/icons";
-
-const APPSTORE_URL =
-  "https://sellercentral.amazon.com/selling-partner-appstore/dp/amzn1.sp.solution.d78b7343-017b-4e68-92e4-a1defb51aa6f";
+import { ArrowRight, CheckCircle, Shield } from "@/components/ui/icons";
 
 const VALUE_PROPS = [
-  "100% TOS-compliant by design",
-  "AI-drafted replies in your brand voice",
-  "Every store & marketplace in one inbox",
+  "An order-by date and quantity for every SKU",
+  "Forecasts that tell real demand from Prime Day",
+  "Every marketplace, warehouse and 3PL in one number",
 ];
 
 /**
- * DragonReply sign-up — a two-column pitch + form. The presentation pitches
- * buyer-message automation (replacing the reimbursement estimate inherited on
- * the dragonrefunds fork); the account itself is still created by
- * `useSignUpForm` from the shared package, so the auth flow stays identical to
- * the sibling brand apps. Confirm-password is local — the shared hook owns
+ * DragonRestock sign-up — a two-column pitch + form. The presentation pitches
+ * restock planning (replacing the buyer-messaging pitch inherited on the
+ * dragonreply fork); the account itself is still created by `useSignUpForm`
+ * from the shared package, so the auth flow stays identical to the sibling
+ * brand apps. Confirm-password is local — the shared hook owns
  * name/email/password only, so we block the submit before the hook sees it.
  */
 export function SignUp() {
@@ -98,13 +95,13 @@ export function SignUp() {
             Start free
           </span>
           <h1 className="mt-5 text-3xl font-extrabold leading-[1.1] tracking-[-0.03em] sm:text-4xl">
-            Reply in seconds.
+            Know what to order.
             <br />
-            Stay TOS-safe.
+            Before you run out.
           </h1>
           <p className="mt-4 max-w-md text-[15px] leading-relaxed text-white/75">
-            The fast, intuitive inbox sellers love — finally on Amazon. Create your account and
-            start drafting replies in minutes.
+            Your restock plan, worked out from your own sales history and lead times. Create your
+            account, connect Amazon, and see your first plan in minutes.
           </p>
           <ul className="mt-7 space-y-3">
             {VALUE_PROPS.map((text) => (
@@ -238,7 +235,7 @@ export function SignUp() {
           <p className="text-center text-[11px] leading-relaxed text-[var(--muted-foreground)]">
             By continuing you agree to our{" "}
             <a
-              href="https://dragonreply.ai/tos"
+              href="https://dragonrestock.com/tos"
               target="_blank"
               rel="noreferrer"
               className="underline underline-offset-2"
@@ -247,7 +244,7 @@ export function SignUp() {
             </a>{" "}
             and{" "}
             <a
-              href="https://dragonreply.ai/privacy"
+              href="https://dragonrestock.com/privacy"
               target="_blank"
               rel="noreferrer"
               className="underline underline-offset-2"
@@ -258,17 +255,15 @@ export function SignUp() {
           </p>
         </form>
 
+        {/* The inherited row linked to DragonReply's Selling Partner Appstore
+            listing — a different product's page, so it's dropped rather than
+            repointed. Restore an "Amazon approved" link here once
+            DragonRestock has a listing of its own. */}
         <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2 border-t pt-5 text-[12px] font-medium">
-          <a
-            href={APPSTORE_URL}
-            target="_blank"
-            rel="noreferrer"
-            className="flex items-center gap-1.5 text-[var(--brand-green)] hover:opacity-70"
-          >
-            <CheckCircle className="h-3.5 w-3.5" />
-            <span className="underline underline-offset-2">Amazon approved</span>
-            <ExternalLink className="h-3 w-3 opacity-60" />
-          </a>
+          <span className="flex items-center gap-1.5 text-[var(--muted-foreground)]">
+            <CheckCircle className="h-3.5 w-3.5 text-[var(--brand-green)]" />
+            Official Amazon Software Partner
+          </span>
           <span className="flex items-center gap-1.5 text-[var(--muted-foreground)]">
             <Shield className="h-3.5 w-3.5 text-[var(--brand-green)]" />
             Amazon ToS compliant

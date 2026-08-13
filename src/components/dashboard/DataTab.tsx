@@ -18,8 +18,8 @@ import {
 } from "./ConnectionButtons";
 import { CogsPanel } from "./CogsPanel";
 
-// Amazon Ads UI is intentionally omitted from Dragon Refunds — the
-// product is refund recovery via SP-API, and Ads isn't part of that
+// Amazon Ads UI is intentionally omitted from DragonRestock — the
+// product is restock planning via SP-API, and Ads isn't part of that
 // flow. If the shared backend ever surfaces an Ads connection for a
 // user (they might connect one via the sibling DragonBot app since
 // accounts are shared), we filter it out of the display here rather
@@ -64,7 +64,7 @@ export function DataTab() {
             <CardTitle>Amazon Seller Central</CardTitle>
             <CardDescription className="mt-1">
               Connect your Amazon Seller accounts to give {brand.displayName} access to
-              orders, fulfillment, and reimbursement data. You can connect multiple
+              orders, inventory, shipments and fee data. You can connect multiple
               seller accounts.
             </CardDescription>
           </div>
