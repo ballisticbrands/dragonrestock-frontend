@@ -13,7 +13,7 @@ import { DRAGONRESTOCK } from "./dragonrestock";
 
 export type { BrandConfig } from "@ballisticbrands/frontend-shared";
 export { DRAGONRESTOCK };
-export { META_PIXEL_ID } from "./dragonrestock";
+export { META_PIXEL_ID, TAGLINE } from "./dragonrestock";
 
 /** The one brand this repo builds. */
 export function activeBrand() {

@@ -36,3 +36,21 @@ export const DRAGONRESTOCK: BrandConfig = {
  * nothing. Creating the dataset in Business Manager is not enough.
  */
 export const META_PIXEL_ID = "28716421651297621";
+
+/**
+ * The product's own tab-title tagline.
+ *
+ * Exported rather than inlined because two places need it at different
+ * times: `main.tsx` sets the title at boot, and `App.tsx` re-sets it on
+ * every route change as the fallback for pages that don't set their own.
+ * While those held separate string literals they drifted — the rebrand
+ * updated `main.tsx` but missed `App.tsx`, so the app booted with the right
+ * title and then overwrote it on mount with DragonReply's "Your Customers,
+ * Answered Automatically", which showed on every route lacking its own
+ * title (today, `/`). One constant makes that class of drift impossible.
+ *
+ * Like META_PIXEL_ID, deliberately NOT a BrandConfig field: that type is
+ * owned by @ballisticbrands/frontend-shared and has no tagline, so adding
+ * one would mean publishing the shared package and bumping every sibling.
+ */
+export const TAGLINE = "Never run out of stock again";

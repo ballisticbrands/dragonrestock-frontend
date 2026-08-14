@@ -7,7 +7,7 @@ import {
   configureShared,
 } from "@ballisticbrands/frontend-shared";
 import App from "./App";
-import { activeBrand, META_PIXEL_ID } from "./brands";
+import { activeBrand, META_PIXEL_ID, TAGLINE } from "./brands";
 import { config } from "./lib/config";
 import "./globals.css";
 
@@ -73,6 +73,17 @@ function injectClarity(projectId: string): void {
   })(window, document, "clarity", "script", projectId);
 }
 
+// Meta's documented standard events. Any event with one of these names IS
+// standard by definition, so promoting it from `trackCustom` to `track` is
+// always correct; anything not on the list (ConnectSeller, ConnectAds) is a
+// genuine custom event and passes through untouched.
+const META_STANDARD_EVENTS = new Set([
+  "AddPaymentInfo", "AddToCart", "AddToWishlist", "CompleteRegistration",
+  "Contact", "CustomizeProduct", "Donate", "FindLocation", "InitiateCheckout",
+  "Lead", "Purchase", "Schedule", "Search", "StartTrial", "SubmitApplication",
+  "Subscribe", "ViewContent",
+]);
+
 // Meta Pixel base snippet. The shared library fires CompleteRegistration /
 // ConnectSeller / ConnectAds through `window.fbq`, but only when it already
 // exists — nothing in the shared package loads the pixel itself. Without
@@ -85,7 +96,19 @@ function injectMetaPixel(pixelId: string): void {
   const w = window as any;
   if (w.fbq) return;
   const n: any = (w.fbq = function () {
-    n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+    // @ballisticbrands/frontend-shared (0.5.0) sends CompleteRegistration via
+    // `fbq('trackCustom', …)`. It is a STANDARD Meta event, and sending it as
+    // custom forfeits Meta's optimization priors and its Aggregated Event
+    // Measurement slot — it still shows up in Events Manager, so the damage is
+    // invisible until campaign delivery underperforms. Fixing it upstream
+    // means publishing the shared package and bumping every sibling repo, so
+    // normalize here instead: this stub stays in the call path after
+    // fbevents.js loads (that script sets `callMethod` on this same object
+    // rather than replacing it), so it catches queued and live calls alike.
+    // DELETE THIS once frontend-shared uses `track` for standard events.
+    const a = Array.prototype.slice.call(arguments);
+    if (a[0] === "trackCustom" && META_STANDARD_EVENTS.has(a[1])) a[0] = "track";
+    n.callMethod ? n.callMethod.apply(n, a) : n.queue.push(a);
   });
   if (!w._fbq) w._fbq = n;
   n.push = n;
@@ -109,7 +132,7 @@ injectMetaPixel(META_PIXEL_ID);
 // product's own: inherited boilerplate describing a different product
 // shows in the tab on any route that doesn't set its own title.
 // Kept in sync with the pre-hydration <title> in index.html.
-document.title = `${brand.displayName} — Never run out of stock again`;
+document.title = `${brand.displayName} — ${TAGLINE}`;
 const metaDesc = document.querySelector('meta[name="description"]');
 if (metaDesc) metaDesc.setAttribute("content", brand.metaDescription);
 

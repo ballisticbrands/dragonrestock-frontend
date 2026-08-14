@@ -11,6 +11,7 @@ import { SignUp } from "@/pages/SignUp";
 import { Dashboard } from "@/pages/Dashboard";
 import { Docs } from "@/pages/Docs";
 import { defaultDoc } from "@/docs/registry";
+import { TAGLINE } from "@/brands";
 
 export default function App() {
   // Update document title on route change so each page has a sensible
@@ -19,7 +20,7 @@ export default function App() {
   const location = useLocation();
   const brand = useBrand();
   useEffect(() => {
-    document.title = `${brand.displayName} — Your Customers, Answered Automatically`;
+    document.title = `${brand.displayName} — ${TAGLINE}`;
   }, [location.pathname, brand.displayName]);
 
   // SPA route pageviews. gtag('config') and the Meta base snippet each fire
