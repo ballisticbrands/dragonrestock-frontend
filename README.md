@@ -3,7 +3,7 @@
 The **DragonRestock** web app — Amazon inventory & restock planning.
 
 - **Live:** https://app.dragonrestock.com
-- **Landing page:** https://dragonrestock.com (repo: `ballisticbrands/dragonrestock-lp`)
+- **Landing page:** https://dragonrestock.com (repo: `ballisticbrands/DragonRestock-LP`)
 - **Backend:** `https://api.getdragonbot.com` — the **shared** backend for every Dragon
   brand app. Bearer tokens from `/v1/auth/sign-in` work across all brand frontends; one
   User table spans them. Overridable via `VITE_API_URL`.
